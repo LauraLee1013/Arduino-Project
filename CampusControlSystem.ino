@@ -10,11 +10,11 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #include <MFRC522.h>
 #include <Servo.h>
 
-#define SS_PIN 10                  //RC522 NSS 連接 Arduino pin 10
-#define RST_PIN 9                  //RC522 RST 連接 Arduino pin 9
-#define LED_G 5                    //綠色 LED 長腳連接 Arduino pin 5
-#define LED_R 4                    //紅色LED 長腳連接 Arduino pin 4
-#define BUZZER 6                   //蜂鳴器正極 連接 Arduino pin 2
+#define SS_PIN 10                  //RC522 NSS connect Arduino pin 10
+#define RST_PIN 9                  //RC522 RST connect Arduino pin 9
+#define LED_G 5                    //green LED positive connect Arduino pin 5
+#define LED_R 4                    //red LED positive connect Arduino pin 4
+#define BUZZER 6                   //buzzer positive connect Arduino pin 2
 #define BUTTON 7
 #define SIZE 11
 int k = 1;
@@ -28,7 +28,7 @@ void setup() {
   Serial.begin(9600);  // Initiate a serial communication
   SPI.begin();         // Initiate  SPI bus
   mfrc522.PCD_Init();  // Initiate MFRC522
-  myServo.attach(3);   // 伺服馬達黃線 連接 Arduino pin 3
+  myServo.attach(3);   // servo moter yellow connect Arduino pin 3
   myServo.write(0);    //servo start position
   pinMode(LED_G, OUTPUT);
   pinMode(LED_R, OUTPUT);
@@ -38,8 +38,8 @@ void setup() {
   Serial.println("Put your card to the reader");
   //Serial.println("Put your card to the reader...o");
   //Serial.println();
-  lcd.init();       //初始化LCD
-  lcd.backlight();  //開啟背光
+  lcd.init();       //initialize LCD
+  lcd.backlight();  
   lcd.setCursor(0, 0);
   lcd.print("Please show");
   lcd.setCursor(0, 1);
